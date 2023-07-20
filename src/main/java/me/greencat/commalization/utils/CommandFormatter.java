@@ -44,7 +44,13 @@ public class CommandFormatter {
                         }
                         String[] splitArgument = argument.split("\"");
                         String fullString;
-                        if(splitArgument.length == 2) {
+                        int QuotationMarksCounter = 0;
+                        for(char c : argument.toCharArray()){
+                            if(c == '\"'){
+                                QuotationMarksCounter++;
+                            }
+                        }
+                        if(QuotationMarksCounter == 1) {
                             StringBuilder sb = new StringBuilder();
                             sb.append(splitArgument[1]);
                             sb.append(" ");
